@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_10_070339) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_10_072056) do
   create_table "answers", force: :cascade do |t|
     t.integer "answer_user_id"
     t.integer "question_id"
@@ -29,6 +29,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_10_070339) do
     t.string "category_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "title"
+    t.text "description"
+    t.datetime "started_at"
+    t.datetime "end_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_participations_on_event_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
   create_table "question_tags", force: :cascade do |t|
@@ -137,6 +157,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_10_070339) do
   add_foreign_key "answers", "users", column: "answer_user_id"
   add_foreign_key "answers_tags", "answers"
   add_foreign_key "answers_tags", "tags"
+  add_foreign_key "events", "users"
+  add_foreign_key "events", "users"
+  add_foreign_key "participations", "events"
+  add_foreign_key "participations", "users"
   add_foreign_key "questions", "users", column: "create_user_id"
   add_foreign_key "reactions", "answers"
   add_foreign_key "reactions", "users"
