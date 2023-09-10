@@ -10,7 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_10_043845) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_10_070339) do
+  create_table "answers", force: :cascade do |t|
+    t.integer "answer_user_id"
+    t.integer "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "answers_tags", force: :cascade do |t|
+    t.integer "answer_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "question_tags", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "create_user_id"
+    t.integer "category_id"
+    t.string "title"
+    t.text "question_body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reactions", force: :cascade do |t|
+    t.integer "answer_id"
+    t.integer "user_id"
+    t.integer "stamp_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stamps", force: :cascade do |t|
+    t.integer "stamp_id"
+    t.integer "reaction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_account_lockings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "failed_attempts"
@@ -76,6 +133,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_10_043845) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "users", column: "answer_user_id"
+  add_foreign_key "answers_tags", "answers"
+  add_foreign_key "answers_tags", "tags"
+  add_foreign_key "questions", "users", column: "create_user_id"
+  add_foreign_key "reactions", "answers"
+  add_foreign_key "reactions", "users"
+  add_foreign_key "stamps", "reactions"
   add_foreign_key "user_account_lockings", "users"
   add_foreign_key "user_account_trackings", "users"
   add_foreign_key "user_password_reset_requests", "users"
