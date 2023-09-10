@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  confirmation_token: MyString
+  confirmed_at: 2023-09-10 04:38:45
+  confirmation_sent_at: 2023-09-10 04:38:45
+  unconfirmed_email: MyString
+  email: MyString
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
+
+two:
+  confirmation_token: MyString
+  confirmed_at: 2023-09-10 04:38:45
+  confirmation_sent_at: 2023-09-10 04:38:45
+  unconfirmed_email: MyString
+  email: MyString
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>

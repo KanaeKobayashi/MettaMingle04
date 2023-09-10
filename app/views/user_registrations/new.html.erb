@@ -1,0 +1,24 @@
+<!-- app/views/user_registrations/new.html.erb -->
+
+<h1>新規ユーザー登録</h1>
+
+<%= form_with(model: @user_registration, url: user_registrations_path, method: :post) do |f| %>
+  <div class="form-group">
+    <%= f.label :email, 'メールアドレス' %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password, 'パスワード' %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation, 'パスワード確認' %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit '登録', class: 'btn btn-primary' %>
+  </div>
+<% end %>

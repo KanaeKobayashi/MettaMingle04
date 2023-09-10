@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   resources :user_account_trackings, only: [:show]
   # とりあえずnew と create アクションに対するルートを設定
   resources :user_password_reset_requests, only: [:new, :create]
+  # とりあえずnew と create アクションに対するルートを設定
+  resources :user_registrations, only: [:new, :create]
+
 end
