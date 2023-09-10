@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_09_10_072056) do
   create_table "answers", force: :cascade do |t|
-    t.integer "answer_user_id"
+    t.integer "user_id"
     t.integer "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -59,10 +59,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_10_072056) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer "create_user_id"
+    t.integer "user_id"
     t.integer "category_id"
     t.string "title"
-    t.text "question_body"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -154,14 +154,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_10_072056) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "answers", "users", column: "answer_user_id"
+  add_foreign_key "answers", "users"
   add_foreign_key "answers_tags", "answers"
   add_foreign_key "answers_tags", "tags"
   add_foreign_key "events", "users"
   add_foreign_key "events", "users"
   add_foreign_key "participations", "events"
   add_foreign_key "participations", "users"
-  add_foreign_key "questions", "users", column: "create_user_id"
+  add_foreign_key "questions", "users"
   add_foreign_key "reactions", "answers"
   add_foreign_key "reactions", "users"
   add_foreign_key "stamps", "reactions"
