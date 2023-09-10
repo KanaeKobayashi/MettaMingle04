@@ -23,3 +23,10 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+
+# 後で本番環境用のURLを取得し、sqliteから変更する
+# production:
+#   <<: *default
+#   adapter: postgresql
+#   encoding: unicode
+#   url: <%= ENV['DATABASE_URL'] %>
