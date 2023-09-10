@@ -1,0 +1,2 @@
+class UserAccountTrackingsController < ApplicationController
+end

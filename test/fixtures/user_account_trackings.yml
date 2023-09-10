@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  sign_in_count: 1
+  last_sign_in_at: 2023-09-10 01:45:25
+  current_sign_in_at: 2023-09-10 01:45:25
+  last_sign_in_ip: MyString
+  current_sign_in_ip: MyString
+
+two:
+  user: two
+  sign_in_count: 1
+  last_sign_in_at: 2023-09-10 01:45:25
+  current_sign_in_at: 2023-09-10 01:45:25
+  last_sign_in_ip: MyString
+  current_sign_in_ip: MyString

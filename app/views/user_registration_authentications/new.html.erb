@@ -1,0 +1,29 @@
+<!-- app/views/user_registration_authentications/new.html.erb -->
+
+<h1 class="display-4">新規ユーザー登録</h1>
+
+<%= form_with model: @user, url: user_registration_authentications_path, method: :post, class: "needs-validation" do |f| %>
+  <div class="mb-3">
+    <%= f.label :user_name, 'ユーザー名', class: "form-label" %>
+    <%= f.text_field :user_name, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :email, 'メールアドレス', class: "form-label" %>
+    <%= f.email_field :email, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :password, 'パスワード', class: "form-label" %>
+    <%= f.password_field :password, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :password_confirmation, 'パスワード確認', class: "form-label" %>
+    <%= f.password_field :password_confirmation, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.submit '登録', class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  failed_attempts: 1
+  unlock_token: MyString
+  locked_at: 2023-09-10 01:37:10
+
+two:
+  user: two
+  failed_attempts: 1
+  unlock_token: MyString
+  locked_at: 2023-09-10 01:37:10
