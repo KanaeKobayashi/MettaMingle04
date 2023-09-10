@@ -62,7 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_10_072056) do
     t.integer "user_id"
     t.integer "category_id"
     t.string "title"
-    t.text "body"
+    t.text "question_body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
