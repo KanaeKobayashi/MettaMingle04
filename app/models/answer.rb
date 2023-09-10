@@ -1,5 +1,5 @@
 class Answer < ApplicationRecord
-  belongs_to :user, foreign_key: 'answer_user_id', class_name: 'User'
+  belongs_to :user, foreign_key: 'user_id', class_name: 'User'
   belongs_to :question
   has_many :reactions
   has_many :answers_tags
